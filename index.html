@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+
+    <div class="h-screen flex">
+        <div class="relative lg:w-1/2  m-auto border-8 border-yellow-700">
+
+            <!-- Video -->
+            <video id="video">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+
+            <!-- Backward and Forward -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div class="flex gap-60 opacity-0 hover:opacity-60">
+                    <button id="backward-button">
+                        <i class="fa fa-backward text-8xl" aria-hidden="true"></i>
+                    </button>
+                    <button id="forward-button">
+                        <i class="fa fa-forward text-8xl" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Play, Pause, Sound, Progress -->
+            <div class="absolute left-0 bg-blue-500 h-10 w-full flex">
+                <div class="flex gap-8 p-4 items-center justify-center">
+                    <button id="play-button">
+                        <i class="fa fa-play"></i>
+                    </button>
+                    <button class="hidden" id="pause-button">
+                        <i class="fa fa-pause"></i>
+                    </button>
+                    <div class="">
+                        <button class="relative" id="active-volume-button">
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                        </button>
+                        <!-- Volume Vertical Range Input -->
+                        <div id="volume-bar-container"
+                            class="-rotate-90 absolute bottom-24 bg-blue-500 p-2 left-0 bg-yellow-500 hidden">
+                            <input type="range" min="0" max="1" step="0.01" value="1" class="" id="volume-bar">
+                        </div>
+                    </div>
+                </div>
+                <div class="py-2 w-4/5 flex flex-col justify-center">
+                    <!-- Progress range -->
+                    <span id="time" class="absolute bottom-0 ml-2 overflow-visible text-xs"
+                        data-display="duration"></span>
+                    <input type="range" min="0" max="90" step="1" value="0" class="relative" id="progress-bar">
+                    </span>
+                </div>
+                <!-- Speed, other stuff -->
+                <div class="absolute py-2 px-4 right-0">
+                    <div class="relative flex gap-2">
+                        <button id="active-speed-button" class="font-semibold px-2">
+                            1x
+                        </button>
+                        <div id="speeds-bar" class="absolute bottom-8  bg-blue-500  flex flex-col hidden">
+                            <button id="speed-2x" class="p-2 border border-gray-200">
+                                <span class="font-semibold">
+                                    2x
+                                </span>
+                            </button>
+                            <button id="speed-1.5x" class="p-2 border border-gray-200">
+                                <span class="font-semibold">
+                                    1.5x
+                                </span>
+                            </button>
+                            <button id="speed-1x" class="p-2 border border-gray-200">
+                                <span class="font-semibold">
+                                    1x
+                                </span>
+                            </button>
+                        </div>
+                        <div class="flex items-center">
+                            <button id="fullscreen-button">
+                                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
